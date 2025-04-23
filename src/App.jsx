@@ -6,10 +6,7 @@ function App() {
 
   return (
     <>
-<<<<<<< HEAD
-=======
     <p>Hello</p>
->>>>>>> 919853edf312491ab70e319cad221fa895cccf6c
     <Filter></Filter>
     </>
   );
