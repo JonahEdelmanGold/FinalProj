@@ -29,13 +29,30 @@ function Filter(){
     };
     const handleSubmit = (e) =>{
         e.preventDefault();
+        const formCheckboxes = Array.from(e.target.elements);
+        //console.log(formCheckboxes);
+        formCheckboxes.forEach(element => {
+            console.log(element.name + " " + element.checked);
+        });
     }
 
 
-    const Checkbox = ({label, value}) =>{
-        const [checked, setChecked] = useState({value});
+    const Checkbox = ({label}) =>{
+        const [checked, setChecked] = useState(true);
+        const id = label;
+
+        function handleClick(){
+            setChecked(!checked);
+            //console.log(checked);
+        }
+
+        var thisLabel = label;
+
         return(
-            <p>{label}</p>
+            <>
+            <input type = "checkbox" name = {thisLabel} onClick={handleClick}></input>
+            <label>{thisLabel}</label>
+            </>
         );
     };
 
@@ -43,7 +60,12 @@ function Filter(){
         <>
         <button onClick={setButton}>Click Here</button>
         <form id = "ColorFilter" onSubmit = {handleSubmit}>
-            
+            <Checkbox label = "white"></Checkbox>
+            <Checkbox label = "blue"></Checkbox>
+            <Checkbox label = "black"></Checkbox>
+            <Checkbox label = "red"></Checkbox>
+            <Checkbox label = "green"></Checkbox>
+            <input type = "submit" value = "Submit"></input>
         </form>
         </>
     );
