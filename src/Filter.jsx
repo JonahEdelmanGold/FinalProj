@@ -20,16 +20,23 @@ function Filter({Cards}){
         xhttp.open("GET", url, true);   
         xhttp.send();
     }, [url]);
-    
-    const [queryURL, setQuery] = useState("");
+
+const orderQueryCheck = {
+    ManaValue: "order:cmc",
+    EDHRank: "order:edhrec",
+    ReleaseDate: "order:released",
+    Price: "order:usd"
+};
+const directionCheck = {
+    Asc: "dir=asc",
+    Desc: "dir=desc"
+};
 
     const handleSubmit = (e) =>{
         e.preventDefault();
         const formValues = Array.from(e.target.elements);
-        let oldQuery = "";
+        console.log(formValues)
         let newQuery = "";
-
-        console.log(e.target.sortOrder.value);
 
         formValues.forEach((element) => { 
             if(element.className == "Color" && element.checked == true){
@@ -40,10 +47,19 @@ function Filter({Cards}){
                 }
             }
         });
-        setQuery(newQuery);
-        let colorQuery = encodeURI("color="+ newQuery);
-        //console.log(colorQuery);
-        let url2 = apiUrl + colorQuery;
+        let colorQuery = ("color="+ newQuery + "(game:paper)");
+        if (e.target.isCommander.checked == true){
+            colorQuery = colorQuery + "is:commander"
+        }
+        
+        let orderQuery = e.target.sortOrder.value;
+        orderQuery = orderQueryCheck[orderQuery];
+        let direction = directionCheck[e.target.order.value];
+
+        let finalQuery = encodeURI(colorQuery +"&" + orderQuery + "&" + direction);
+
+
+        let url2 = apiUrl + finalQuery;
         setUrl(url2);
     }
 
@@ -64,7 +80,7 @@ function Filter({Cards}){
                 <label for="Green">Green</label>
             </div>
             <div id = "additional">
-                <input type = "checkbox" name = "isCommander"></input>
+                <input type = "checkbox" name = "isCommander" value = "isCommander"></input>
                     <label for="isCommander">isCommander?</label>
             </div>
             <div id = "sortlist">
