@@ -25,12 +25,14 @@ function Filter({Cards}){
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        const formCheckboxes = Array.from(e.target.elements);
+        const formValues = Array.from(e.target.elements);
         let oldQuery = "";
         let newQuery = "";
 
-        formCheckboxes.forEach((element) => { 
-            if(element.type == "checkbox" && element.checked == true){
+        console.log(e.target.sortOrder.value);
+
+        formValues.forEach((element) => { 
+            if(element.className == "Color" && element.checked == true){
                 if(element.name !== "Blue"){
                     newQuery = newQuery + element.name[0];
                 }else{
@@ -40,26 +42,43 @@ function Filter({Cards}){
         });
         setQuery(newQuery);
         let colorQuery = encodeURI("color="+ newQuery);
-        console.log(colorQuery);
+        //console.log(colorQuery);
         let url2 = apiUrl + colorQuery;
         setUrl(url2);
     }
 
+    
     return(
         <>
         <form id = "ColorFilter" onSubmit = {handleSubmit}>
-            <input type = "checkbox" name = "White"></input>
+            <div id = "checkboxes">
+            <input type = "checkbox" name = "White" className = "Color" ></input>
                 <label for="White">White</label>
-            <input type = "checkbox" name = "Blue"></input>
+            <input type = "checkbox" name = "Blue"className = "Color"></input>
                 <label for="Blue">Blue</label>
-            <input type = "checkbox" name = "Black"></input>
+            <input type = "checkbox" name = "Black"className = "Color"></input>
                 <label for="Black">Black</label>
-            <input type = "checkbox" name = "Red"></input>
+            <input type = "checkbox" name = "Red"className = "Color"></input>
                 <label for="Red">Red</label>
-            <input type = "checkbox" name = "Green"></input>
+            <input type = "checkbox" name = "Green"className = "Color"></input>
                 <label for="Green">Green</label>
-            <input type = "checkbox" name = "Colorless"></input>
-                <label for="Green">Colorless</label>
+            </div>
+            <div id = "additional">
+                <input type = "checkbox" name = "isCommander"></input>
+                    <label for="isCommander">isCommander?</label>
+            </div>
+            <div id = "sortlist">
+                <select name = "sortOrder">
+                    <option value = "ReleaseDate">Release Date</option>
+                    <option value = "Price">Price</option>
+                    <option value = "ManaValue">Mana Value</option>
+                    <option value = "EDHRank">EDH popularity</option>
+                </select>
+                <input type = "radio" name= "order" value = "Asc" id = "Asc"></input>
+                    <label for = "Asc">Ascending</label>
+                <input type = "radio" name= "order" value = "Desc" id = "Desc"></input>
+                    <label for = "Desc">Descending</label>
+            </div>
             <input type = "submit" value = "Submit"></input>
         </form>
         </>
