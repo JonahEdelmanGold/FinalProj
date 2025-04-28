@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 
-function Filter({Cards}){
+function Filter({Cards, numberShown}){
 
     const [url, setUrl] = useState("");
     const apiUrl = "https://api.scryfall.com/cards/search?q=";
@@ -35,8 +35,10 @@ const directionCheck = {
     const handleSubmit = (e) =>{
         e.preventDefault();
         const formValues = Array.from(e.target.elements);
-        console.log(formValues)
+        //console.log(formValues)
         let newQuery = "";
+        numberShown(e.target.NumberShown.value);
+
 
         formValues.forEach((element) => { 
             if(element.className == "Color" && element.checked == true){
@@ -94,6 +96,13 @@ const directionCheck = {
                     <label for = "Asc">Ascending</label>
                 <input type = "radio" name= "order" value = "Desc" id = "Desc"></input>
                     <label for = "Desc">Descending</label>
+                <br></br>
+                <label for="NumberShown">Number of Cards shown at once?</label>
+                <select name = "NumberShown" >
+                    <option value = "10">10</option>
+                    <option value = "20">20</option>
+                    <option value = "50">50</option>
+                </select>
             </div>
             <input type = "submit" value = "Submit"></input>
         </form>
