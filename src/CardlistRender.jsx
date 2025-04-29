@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Card from './Card.jsx'
 import CenteredCard from './CenteredCard.jsx';
+import './CardList.css'
 
 function CardlistRender({cardList, numShow}){
 
@@ -45,9 +46,9 @@ function sliceListed(){
 
     return(
         <>
-        {mappedCards}
-        <CenteredCard card = {focusCard} focus = {focus}></CenteredCard>
+        <CenteredCard card = {focusCard} focus = {focus} seeFocus = {focus => setFocus(focus)}></CenteredCard>
         <section id = "cardList">
+        {mappedCards}
         </section>
         <p>Hi</p>
         </>

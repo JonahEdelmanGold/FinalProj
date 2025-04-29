@@ -11,7 +11,9 @@ function App() {
 
   return (
     <>
-    <p>Hello</p>
+    <header>
+    <h1>Hello</h1>
+    </header>
     <Filter Cards = {Cards => setCards(Cards)} numberShown = {numberShown => setNumShow(numberShown)}></Filter>
     <section className = "gallery">
       <CardlistRender cardList = {Cards} numShow = {numberShown}></CardlistRender>
