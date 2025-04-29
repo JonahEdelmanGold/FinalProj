@@ -51,7 +51,9 @@ const directionCheck = {
         });
         let colorQuery = ("color="+ newQuery + "(game:paper)");
         if (e.target.isCommander.checked == true){
-            colorQuery = colorQuery + "is:commander"
+            colorQuery = colorQuery + "(is:commander is:firstprint)";
+        }else{
+            colorQuery = colorQuery + "(is:firstprint)";
         }
         
         let orderQuery = e.target.sortOrder.value;
