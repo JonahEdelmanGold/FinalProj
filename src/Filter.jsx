@@ -22,10 +22,10 @@ function Filter({Cards, numberShown}){
     }, [url]);
 
 const orderQueryCheck = {
-    ManaValue: "order:cmc",
-    EDHRank: "order:edhrec",
-    ReleaseDate: "order:released",
-    Price: "order:usd"
+    ManaValue: "order=cmc",
+    EDHRank: "order=edhrec",
+    ReleaseDate: "order=released",
+    Price: "order=usd"
 };
 const directionCheck = {
     Asc: "dir=asc",
@@ -58,6 +58,7 @@ const directionCheck = {
         
         let orderQuery = e.target.sortOrder.value;
         orderQuery = orderQueryCheck[orderQuery];
+        //console.log(orderQuery);
         let direction = directionCheck[e.target.order.value];
 
         let finalQuery = encodeURI(colorQuery +"&" + orderQuery + "&" + direction);

@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react'
 import Card from './Card.jsx'
+import CenteredCard from './CenteredCard.jsx';
 
 function CardlistRender({cardList, numShow}){
 
     const [numShown, setNumShow] = useState("");
     const[cardsListed, setCards] = useState([]);
     const[mappedCards, setMapped] = useState([]);
+
+    const [focus, setFocus] = useState(false);
+    const [focusCard, setFocusCard] = useState("");
 
     useEffect(() =>{
         setNumShow(numShow);
@@ -30,7 +34,7 @@ function sliceListed(){
                 tempList= tempList.slice(0, numShown);
             } 
             setMapped(tempList.map((card, index) => 
-                <Card key = {index} cardData = {card}></Card>
+                <Card key = {index} cardData = {card} shouldCenter = {focus => setFocus(focus)} focusCard = {card => setFocusCard(card)}></Card>
             ));
             //console.log(tempMapped);
         }
@@ -42,6 +46,7 @@ function sliceListed(){
     return(
         <>
         {mappedCards}
+        <CenteredCard card = {focusCard} focus = {focus}></CenteredCard>
         <section id = "cardList">
         </section>
         <p>Hi</p>

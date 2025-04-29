@@ -13,7 +13,9 @@ function App() {
     <>
     <p>Hello</p>
     <Filter Cards = {Cards => setCards(Cards)} numberShown = {numberShown => setNumShow(numberShown)}></Filter>
-    <CardlistRender cardList = {Cards} numShow = {numberShown}></CardlistRender>
+    <section className = "gallery">
+      <CardlistRender cardList = {Cards} numShow = {numberShown}></CardlistRender>
+    </section>
     </>
   );
 }
