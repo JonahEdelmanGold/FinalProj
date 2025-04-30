@@ -4,13 +4,33 @@
   height:auto;
   min-height:100%;
   margin:0px;
-  background-color: green;
+  background-color: rgba(33, 158, 188, 1);
+  color: rgb(221, 115, 2);
+  font-family:Arial;
 }
 
 .gallery{
   width:100%;
 }
 header{
-  margin:0px;
-  
+  background-color: blanchedalmond;
+  position:relative;
+  padding:2%;
+  display:grid;
+  justify-content: center;
 }
+header h1{
+  margin:0px;
+  color:rgba(33, 158, 188, 1);
+}
+input:hover, select:hover, option:hover, .card:hover{
+  cursor:pointer;
+}
+
+footer{
+  background-color: rgb(2, 48, 71);
+  color: rgb(106, 99, 83);
+  display:flex;
+  font-size:14px;
+}
+

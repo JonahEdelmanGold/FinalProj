@@ -12,7 +12,8 @@
     background-color:rgba(0,0,0,.5);
 }
 #centeredCard img{
-    width:80%;
+    max-width:80%;
+    max-height:80%;
     justify-self:center;
     grid-row:1 / span 5;
     grid-column:2;
@@ -26,4 +27,13 @@
 }
 #centeredCard button{
     grid-row:2;
+    background-color: rgb(251, 133, 0);
+    border-radius:40%;
+    border:none;
+}
+#centeredCard button:hover{
+    cursor:pointer;
+}
+#centeredCard img{
+    border-radius:5%;
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
+import './filter.css'
 
 function Filter({Cards, numberShown}){
 
@@ -86,7 +87,7 @@ const directionCheck = {
             </div>
             <div id = "additional">
                 <input type = "checkbox" name = "isCommander" value = "isCommander"></input>
-                    <label for="isCommander">isCommander?</label>
+                    <label for="isCommander">Cards Can be Commander?</label>
             </div>
             <div id = "sortlist">
                 <select name = "sortOrder">
@@ -107,7 +108,7 @@ const directionCheck = {
                     <option value = "50">50</option>
                 </select>
             </div>
-            <input type = "submit" value = "Submit"></input>
+            <input type = "submit" value = "Submit" id = "submitButton"></input>
         </form>
         </>
     );

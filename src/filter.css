@@ -1,0 +1,24 @@
+#ColorFilter{
+    background-color: rgba(142, 202, 230, 1);
+    display:grid;
+    grid-template-columns:100%;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap:5px;
+    color: rgb(75, 80, 92);
+    width:50%;
+    justify-self:center;
+    margin:2%;
+    border-radius:20px; 
+    padding:1%;
+}
+#ColorFilter div{
+    justify-self:center;
+    
+}
+#ColorFilter #submitButton{
+    width:40%;
+    justify-self:center;
+    background-color: rgb(251, 133, 0);
+    border-radius:20px;
+    border-style:none;
+}

@@ -1,7 +1,11 @@
 #cardList{
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
 }
 .card{
     justify-self:center;
+}
+.card img{
+    border-radius:5%;
 }

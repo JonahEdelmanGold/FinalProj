@@ -50,7 +50,6 @@ function sliceListed(){
         <section id = "cardList">
         {mappedCards}
         </section>
-        <p>Hi</p>
         </>
     );
 }
