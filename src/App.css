@@ -7,6 +7,9 @@
   background-color: rgba(33, 158, 188, 1);
   color: rgb(221, 115, 2);
   font-family:Arial;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
 .gallery{
@@ -18,6 +21,7 @@ header{
   padding:2%;
   display:grid;
   justify-content: center;
+  width:100%;
 }
 header h1{
   margin:0px;
@@ -32,5 +36,6 @@ footer{
   color: rgb(106, 99, 83);
   display:flex;
   font-size:14px;
+  margin-top:auto;
 }
 
